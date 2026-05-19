@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 허브</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="header-left">
+        <div class="logo">🤖</div>
+        <h1>AI 허브</h1>
+    </div>
+    <div id="headerUserArea"></div>
+</header>
+<nav>
+    <a onclick="navigate('home')" id="nav-home">🏠 홈</a>
+    <a onclick="navigate('recommend')" id="nav-recommend">🌟 AI 추천</a>
+    <a onclick="navigate('vscode')" id="nav-vscode">⌨️ VS Code 단축키</a>
+    <a onclick="navigate('chatbot')" id="nav-chatbot">💬 AI 챗봇</a>
+    <a onclick="navigate('login')" id="nav-login">🔑 로그인</a>
+</nav>
+
+<div class="page" id="page-home">
+    <div id="page-home-inner" style="max-width:860px;margin:0 auto;padding:1.5em;"></div>
+</div>
+
+<div class="page" id="page-login">
+    <div id="page-login-inner"></div>
+</div>
+
+<div class="page" id="page-vscode">
+    <div class="vscode-header">
+        <h2>⌨️ VS Code 단축키 모음</h2>
+        <p>자주 쓰는 VS Code 단축키를 빠르게 검색하세요.</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:1em;">
+        <input class="vscode-search" id="shortcut-search" placeholder="🔍 단축키 검색... (예: 저장, 찾기, 터미널)" oninput="filterShortcuts()">
+        <div class="os-toggle">
+            <button class="os-btn active" id="os-win" onclick="switchOS('win')">🪟 Windows</button>
+            <button class="os-btn" id="os-mac" onclick="switchOS('mac')">🍎 macOS</button>
+        </div>
+    </div>
+    <div id="shortcut-list"></div>
+</div>
+
+<div class="page" id="page-recommend">
+    <div class="recommend-header">
+        <h2>🌟 AI 도구 추천</h2>
+        <p>카테고리를 선택하거나 전체 목록을 확인하세요.</p>
+    </div>
+    <div class="rec-category-bar" id="rec-cat-bar"></div>
+    <div id="rec-content"></div>
+</div>
+
+<div class="page" id="page-chatbot" style="display:none;flex-direction:column;">
+    <div class="category-bar" id="chatCatBar"></div>
+    <div id="chatArea"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
